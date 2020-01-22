@@ -1,0 +1,192 @@
+<html>
+<head>
+<style>
+.button
+{
+  width: 425px;
+  text-align: center;
+  margin:10 475;
+  background-color: blue;
+  color:white;
+  font-size: 40px;
+
+}
+input[type=text], select {
+  
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+</head>
+
+<script>
+function myfunction(){
+    var fname=document.getElementById("fname").value;
+  var flag=true;
+  if(fname.length == 0){
+      document.getElementById("mssgf").style.display="block";
+    flag = false;
+  }
+
+  var lname=document.getElementById("lname").value;
+  if(lname.length == 0){
+    document.getElementById("mssgl").style.display="block";
+    flag = false;
+  }
+
+
+  var uname=document.getElementById("uname").value;
+  if(uname.length == 0){
+    document.getElementById("mssgu").style.display="block";
+    flag = false;
+  }
+
+  var address=document.getElementById("address").value;
+  if(address.length == 0){
+    document.getElementById("mssga1").style.display="block";
+    flag = false;
+  }
+
+  
+  var radiobtn=document.getElementById("radiobtn").checked;
+  if(!radiobtn){
+    document.getElementById("mssgr").style.display="block";
+    flag = false;
+  }
+
+  var noc=document.getElementById("noc").value;
+  if(noc.length == 0){
+    document.getElementById("mssgnc").style.display="block";
+    flag = false;
+  }
+
+  var ccn=document.getElementById("ccn").value;
+  if(isNan(ccn)|| ccn.length == 0||ccn.length<0||ccn.length>19){
+    document.getElementById("mssgccn").style.display="block";
+    flag = false;
+  }
+
+  var expiry=document.getElementById("expiry").value;
+  if(expiry.length == 0){
+    document.getElementById("mssgex").style.display="block";
+    flag = false;
+}
+var cvv=document.getElementById("cvv").value;
+if(isNaN(cvv)|| cvv.length == 0){
+  document.getElementById("mssgcvv").style.display="block";
+  flag = false;
+}
+return flag; 
+} 
+</script>
+<body>
+  
+
+ <h1 style="text-align:center;"><b>Checkout form</b></h1>
+  <h2>Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</h2>
+
+
+<form action ="#" name="myForm" onsubmit="return myfunction()">
+
+<label for="fname">First Name:</label>
+<input type="text" id="fname" name="firstname" placeholder=" " >
+    <p id="mssgf" style="display: none; color:red;">Valid first Name Required</p>
+    <br>
+
+    
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lastname" placeholder=" " >
+    <p id="mssgl" style="display: none; color:red;">Valid last name Required</p>
+<br>
+
+    <label for="Uname">Username</label>
+    <input type="text" id="uname" name="Username" placeholder="Username">   
+    <p id="mssgu" style="display: none; color:red;">Valid UserName Required</p>
+</div>
+<br>
+<br>
+
+<label for="Email">Email(optional)</label>
+<input type="text" name="Email(optional)" placeholder="you@example.com">
+<br>
+<br>
+
+<label for="Address">Address</label>
+<input type="text" id=address name="address" placeholder="1234 main st">
+<p id="mssga1" style="display: none; color:red;">Valid Address Required</p>
+
+<br>
+<br>
+
+<label for="Addess2">Address 2</label>
+<input type="text" name="address" placeholder="Apartment or suite">
+
+<br>
+<br>
+
+<label for="Country">Country</label>
+    <select id="country" name="Country">
+      <option value="Choose..">Choose..</option>
+      <option value="California">California</option>
+      <p id="mssgcountry" style="display: none; color:red;">Valid Country Required</p>
+      <br>
+      <br>
+
+    <!--</select> 
+
+     <select id="State" name="State">
+      <option value="Choose..">Choose..</option>
+      <option value="California">State</option>
+    </select>-->
+    <br>
+    <br>
+    <hr>
+    <input type="checkbox" name="1" value=" "> shipping address is the same as my billing address<br>
+  <input type="checkbox" name="2" value=" "> save this information for next time<br>
+  <br>
+  <hr>
+
+  <p>Payment Option:</p>
+  <input id="radiobtn" type="radio" name="payment option" value="credit card"> Credit card<br>
+  <input id="radiobtn" type="radio" name="payment option" value="debit card"> Debit card<br>
+  <input id="radiobtn" type="radio" name="payment option" value="paypal"> Paypal<br>
+  <p id="mssgr" style="display: none; color:red;">please select one option</p>
+  <br>
+
+    <label for="nameoncard">Name On Card</label>
+    <input id="noc" type="text" name="name on card" placeholder=" ">
+    <p id="mssgnc" style="display: none; color:red;">Valid Nameoncard Required</p>
+
+    <label for="creditcardnumber">Credit Card Number</label>
+    <input id="ccn" type="text" name="credit card number" placeholder=" ">
+    <p id="mssgccn" style="display: none; color:red;">Valid Credit card number Required</p>
+    <br>
+    <br>
+
+    <label for="expiration">Expiration</label>
+    <input id="expiry" type="text" name="expiration" placeholder=" ">
+  <p id="mssgex" style="display: none; color:red;">Valid Expiry Date Required</p>
+  <br>
+  <br>
+
+    <label for="cvv">CVV</label>
+    <input id="cvv" type="text" name="cvv" placeholder=" ">
+    <p id="mssgcvv" style="display: none; color:red;">Valid CVV Required</p>
+    <br>
+    <br>
+    <hr>
+     <input class="button" type="submit" value="Continue To Checkout">
+
+
+  </form>
+</body>
+</html>
